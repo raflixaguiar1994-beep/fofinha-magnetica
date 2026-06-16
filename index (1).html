@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imersão Fofinha Posturada · 3ª Edição · Fofinha Magnética</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0D;
+    --noir:#141216;
+    --noir-2:#1B181E;
+    --gold:#C9A24B;
+    --gold-soft:#E8CC85;
+    --gold-deep:#9A7426;
+    --cream:#F3EEE5;
+    --muted:#9C948A;
+    --line:rgba(201,162,75,.22);
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Poppins',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 26px;
+  }
+
+  .serif{font-family:'Lora',serif;}
+
+  .eyebrow{
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+
+  .gold-text{
+    background:linear-gradient(100deg,var(--gold-deep),var(--gold) 40%,var(--gold-soft) 70%,var(--gold));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:84px 0 76px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .field{
+    position:absolute;
+    top:50%;
+    right:-6%;
+    transform:translateY(-50%);
+    width:min(760px,92vw);
+    height:760px;
+    pointer-events:none;
+    opacity:.55;
+    -webkit-mask-image:radial-gradient(circle at center,#000 38%,transparent 72%);
+    mask-image:radial-gradient(circle at center,#000 38%,transparent 72%);
+  }
+  .field .ring{
+    fill:none;
+    stroke:url(#goldgrad);
+    stroke-width:1;
+    transform-origin:center;
+    animation:breathe 9s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%,100%{opacity:.5;}
+    50%{opacity:.95;}
+  }
+  .hero-inner{position:relative;z-index:2;max-width:720px;}
+  .hero .eyebrow{display:block;margin-bottom:22px;}
+  .hero h1{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:clamp(2.4rem,6.2vw,4rem);
+    line-height:1.04;
+    letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;font-weight:500;}
+  .hero .lede{
+    font-size:clamp(1rem,2.2vw,1.18rem);
+    color:#D9D2C7;
+    max-width:540px;
+    font-weight:300;
+    margin-bottom:34px;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 30px;
+    align-items:center;
+    margin-bottom:36px;
+  }
+  .meta-row .item{
+    display:flex;
+    flex-direction:column;
+    line-height:1.25;
+  }
+  .meta-row .item .k{
+    font-size:.66rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  .meta-row .item .v{
+    font-family:'Lora',serif;
+    font-size:1.12rem;
+    color:var(--cream);
+  }
+  .meta-row .sep{width:1px;height:34px;background:var(--line);}
+
+  /* ---------- CTA BUTTON ---------- */
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background:linear-gradient(100deg,var(--gold-deep),var(--gold) 45%,var(--gold-soft));
+    color:#1A1306;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:.92rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:17px 34px;
+    border-radius:2px;
+    transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow:0 10px 30px -12px rgba(201,162,75,.5);
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(201,162,75,.7);}
+  .cta .arr{transition:transform .25s ease;}
+  .cta:hover .arr{transform:translateX(4px);}
+  .cta-note{
+    display:block;
+    margin-top:14px;
+    font-size:.82rem;
+    color:var(--muted);
+  }
+
+  /* ---------- PROOF STRIP ---------- */
+  .proof{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(201,162,75,.04),transparent);
+  }
+  .proof .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px 60px;
+    align-items:baseline;
+    padding:40px 26px;
+  }
+  .stat .num{
+    font-family:'Lora',serif;
+    font-size:clamp(2rem,5vw,2.9rem);
+    line-height:1;
+  }
+  .stat .lab{
+    font-size:.74rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:8px;
+  }
+  .proof-line{
+    flex:1;
+    min-width:260px;
+    font-family:'Lora',serif;
+    font-style:italic;
+    font-size:1.12rem;
+    color:#D9D2C7;
+  }
+
+  /* ---------- SECTION BASE ---------- */
+  section.block{padding:74px 0;}
+  .tag{
+    display:block;
+    margin-bottom:18px;
+  }
+  .sec-title{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:clamp(1.8rem,4.4vw,2.7rem);
+    line-height:1.1;
+    letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  .sec-title em{font-style:italic;font-weight:500;}
+  .turn-text{
+    max-width:680px;
+    font-size:1.06rem;
+    color:#D9D2C7;
+    font-weight:300;
+  }
+  .turn-text strong{color:var(--cream);font-weight:600;}
+
+  /* ---------- BLOCKS GRID ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:48px;
+  }
+  .card{
+    position:relative;
+    background:var(--noir);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:4px;
+    padding:34px 30px 32px;
+    transition:border-color .3s ease, transform .3s ease, background .3s ease;
+  }
+  .card:hover{
+    border-color:var(--gold);
+    transform:translateY(-4px);
+    background:var(--noir-2);
+  }
+  .card .idx{
+    font-family:'Lora',serif;
+    font-size:2.1rem;
+    line-height:1;
+    margin-bottom:16px;
+    display:block;
+  }
+  .card h3{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:1.26rem;
+    line-height:1.25;
+    margin-bottom:12px;
+  }
+  .card p{font-size:.95rem;color:var(--muted);font-weight:300;}
+
+  /* ---------- FOR WHOM ---------- */
+  .whom{border-top:1px solid var(--line);}
+  .whom-list{
+    list-style:none;
+    margin-top:34px;
+    display:grid;
+    gap:2px;
+  }
+  .whom-list li{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    font-size:1.02rem;
+    color:#D9D2C7;
+    font-weight:300;
+  }
+  .whom-list li::before{
+    content:"";
+    flex:0 0 auto;
+    width:7px;height:7px;
+    margin-top:11px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(201,162,75,.6);
+  }
+
+  /* ---------- DETAILS CARD ---------- */
+  .details .wrap{display:flex;justify-content:center;}
+  .panel{
+    width:100%;
+    max-width:720px;
+    background:linear-gradient(165deg,var(--noir-2),var(--noir));
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:46px 44px;
+    text-align:center;
+  }
+  .panel .eyebrow{margin-bottom:24px;}
+  .panel .date{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:clamp(2rem,6vw,3rem);
+    line-height:1.05;
+    margin-bottom:6px;
+  }
+  .panel .sub{color:var(--muted);font-size:.95rem;margin-bottom:30px;}
+  .panel .rec{
+    border-top:1px solid var(--line);
+    padding-top:26px;
+    margin-top:6px;
+  }
+  .panel .rec .lbl{
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:10px;
+  }
+  .panel .rec p{color:#D9D2C7;font-weight:300;font-size:1.02rem;max-width:440px;margin:0 auto;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final{
+    text-align:center;
+    border-top:1px solid var(--line);
+    background:radial-gradient(ellipse at center top,rgba(201,162,75,.07),transparent 60%);
+    padding:84px 0 70px;
+  }
+  .final h2{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:clamp(1.9rem,5vw,2.9rem);
+    line-height:1.12;
+    max-width:660px;
+    margin:0 auto 26px;
+  }
+  .final .cta{margin-top:8px;}
+  .signoff{
+    font-family:'Lora',serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--gold);
+    margin-top:54px;
+  }
+  footer{
+    text-align:center;
+    padding:30px 0 50px;
+    color:var(--muted);
+    font-size:.8rem;
+    letter-spacing:.04em;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:720px){
+    .grid{grid-template-columns:1fr;}
+    .meta-row .sep{display:none;}
+    .panel{padding:38px 24px;}
+    section.block{padding:58px 0;}
+    .hero{padding:64px 0 58px;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;}
+    .reveal{opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <svg class="field" viewBox="0 0 760 760" aria-hidden="true">
+      <defs>
+        <linearGradient id="goldgrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#9A7426"/>
+          <stop offset="0.5" stop-color="#C9A24B"/>
+          <stop offset="1" stop-color="#E8CC85"/>
+        </linearGradient>
+      </defs>
+      <g transform="translate(380 380)">
+        <ellipse class="ring" rx="70" ry="70" style="animation-delay:0s"/>
+        <ellipse class="ring" rx="130" ry="120" style="animation-delay:.6s"/>
+        <ellipse class="ring" rx="200" ry="178" style="animation-delay:1.2s"/>
+        <ellipse class="ring" rx="278" ry="240" style="animation-delay:1.8s"/>
+        <ellipse class="ring" rx="360" ry="305" style="animation-delay:2.4s"/>
+        <circle r="5" fill="#E8CC85"/>
+      </g>
+    </svg>
+
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Imersão Fofinha Posturada · 3ª Edição</span>
+      <h1>Para de correr atrás.<br><em class="gold-text">Vire uma Fofinha Magnética.</em></h1>
+      <p class="lede">Uma noite ao vivo pra você entender por que tá atraindo o homem errado e construir a presença que faz o certo te notar. Sem joguinho. Sem migalha.</p>
+
+      <div class="meta-row">
+        <div class="item">
+          <span class="k">Quando</span>
+          <span class="v">Dia 21, às 18h</span>
+        </div>
+        <span class="sep"></span>
+        <div class="item">
+          <span class="k">Onde</span>
+          <span class="v">Ao vivo, online</span>
+        </div>
+        <span class="sep"></span>
+        <div class="item">
+          <span class="k">Garantia</span>
+          <span class="v">Acesso à gravação</span>
+        </div>
+      </div>
+
+      <a class="cta" href="https://pay.kiwify.com.br/jX1kbJA">Quero minha vaga <span class="arr">&rarr;</span></a>
+      <span class="cta-note">Horário de Brasília. Comprou, a gravação fica sua pra rever quando quiser.</span>
+    </div>
+  </header>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="stat">
+        <div class="num gold-text">+2 mil</div>
+        <div class="lab">Mulheres já passaram por dentro</div>
+      </div>
+      <div class="stat">
+        <div class="num gold-text">2</div>
+        <div class="lab">Edições anteriores lotadas</div>
+      </div>
+      <p class="proof-line">Duas edições, mais de duas mil fofinhas transformadas. Essa é a virada da terceira.</p>
+    </div>
+  </section>
+
+  <!-- THE TURN -->
+  <section class="block">
+    <div class="wrap reveal">
+      <span class="eyebrow tag">O que muda nessa edição</span>
+      <h2 class="sec-title">Magnética não é a mulher que se defende.<br><em class="gold-text">É a que atrai e filtra.</em></h2>
+      <p class="turn-text">Nas duas primeiras a gente falou de postura e limite pra você parar de aceitar pouco. Agora a gente sobe o nível. <strong>Magnetismo não é joguinho.</strong> É a presença que faz o homem certo querer chegar e o errado se afastar sozinho, sem você precisar gritar, cobrar ou correr atrás. Nessa noite você descobre o que tá te entregando e aprende a virar prioridade no automático.</p>
+    </div>
+  </section>
+
+  <!-- BLOCKS -->
+  <section class="block" style="padding-top:0;">
+    <div class="wrap">
+      <span class="eyebrow tag reveal">O que você vai aprender</span>
+      <div class="grid">
+        <div class="card reveal">
+          <span class="idx gold-text">01</span>
+          <h3>A mulher ímã contra a mulher carente</h3>
+          <p>A diferença brutal entre quem corre atrás e quem é perseguida. Por que carência afasta o homem bom e autossuficiência atrai.</p>
+        </div>
+        <div class="card reveal">
+          <span class="idx gold-text">02</span>
+          <h3>A imagem que você transmite sem perceber</h3>
+          <p>O que sua bio, seu perfil e sua postura gritam antes de você abrir a boca. E como consertar o que tá te entregando como opção.</p>
+        </div>
+        <div class="card reveal">
+          <span class="idx gold-text">03</span>
+          <h3>Comportamento magnético na prática</h3>
+          <p>Como impor valor sem parecer fria, filtrar homem ruim no automático e parar de dar a décima chance achando que é amor.</p>
+        </div>
+        <div class="card reveal">
+          <span class="idx gold-text">04</span>
+          <h3>Como manter e não voltar pro padrão</h3>
+          <p>Magnetismo se perde no dia que você se esquece de você por causa de um homem. Aqui você aprende a sustentar a sua presença.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="block whom">
+    <div class="wrap reveal">
+      <span class="eyebrow tag">Essa noite é pra você que</span>
+      <h2 class="sec-title">Já cansou de aceitar migalha <em class="gold-text">e chamar de amor.</em></h2>
+      <ul class="whom-list">
+        <li>Atrai sempre o mesmo tipo de homem e não entende por quê.</li>
+        <li>Dá mais do que recebe e ainda se sente pouco.</li>
+        <li>Sabe que merece mais, mas não sabe se posicionar sem medo de perder o cara.</li>
+        <li>Quer ser a mulher segura, vista e priorizada, não a que fica esperando ser escolhida.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="block details">
+    <div class="wrap">
+      <div class="panel reveal">
+        <span class="eyebrow">Imersão ao vivo</span>
+        <div class="date gold-text">Dia 21, 18h</div>
+        <div class="sub">Horário de Brasília · Online e ao vivo com o Rafa</div>
+        <div class="rec">
+          <div class="lbl">Não consegue ao vivo?</div>
+          <p>Relaxa, fofinha. Você recebe a gravação completa. Comprou, é sua pra assistir e rever no seu tempo, quantas vezes quiser.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap reveal">
+      <h2>A mulher magnética não fica esperando o momento perfeito. <span class="gold-text">Ela decide.</span></h2>
+      <a class="cta" href="https://pay.kiwify.com.br/jX1kbJA">Garantir minha vaga <span class="arr">&rarr;</span></a>
+      <span class="cta-note">Acesso por R$ 27 · Vaga com gravação inclusa.</span>
+      <div class="signoff">Te valoriza, porra.</div>
+    </div>
+  </section>
+
+  <footer>
+    @rafateconta · Imersão Fofinha Posturada
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+    },{threshold:.14});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+
+</body>
+</html>
